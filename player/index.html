@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="./src/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Music Player</h1>
+    </header>
+    <main>
+      <img
+        id="cover"
+        src="./image/phm1zobdvym81.webp"
+        alt="cover discovery - Daft Punk"
+      />
+    </main>
+    <footer>
+      <input type="button" value="pause" id="button" />
+      <input type="range" value="0" min="0" max="100" id="temps" />
+      <input
+        type="range"
+        value="15"
+        min="0"
+        max="30"
+        id="volume"
+        oninput="this.nextElementSibling.value = this.value"
+      />
+      <output>15</output>
+    </footer>
+
+    <div id="app"></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

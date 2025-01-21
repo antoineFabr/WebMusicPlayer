@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+header{
+    height: 20%;
+}
+main{
+    height: 60%;
+}
+footer{
+    height: 20%;
+}
+#cover{
+    width: 600px;
+    height: 40%;
+}
+
