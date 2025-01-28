@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "gsap": "^3.12.7",
     "vite": "^6.0.5"
   },
   "dependencies": {
-    "gsap": "^3.12.7",
-    "howler": "^2.2.4"
+    "howler": "^2.2.4",
+    "youtube-mp3-downloader": "^0.7.11",
+    "youtube-sr": "^4.3.11"
   }
 }
