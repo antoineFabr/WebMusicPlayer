@@ -1,6 +1,6 @@
-const success = (header, message, data, image) => {
+const success = ( message, data, image) => {
   return {
-    header: header,
+     
     message: message,
     videoId: data,
     image: image,

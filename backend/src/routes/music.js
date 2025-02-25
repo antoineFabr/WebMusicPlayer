@@ -11,12 +11,12 @@ musicRouteur.get("/", (req, res) => {
 musicRouteur.get("/search/", async (req, res) => {
   if (req.query.artist && req.query.song) {
     const r = await yts(
-      `${req.query.song} by ${req.query.artist} official audio`
+      `${req.query.song} by ${req.query.artist} official`
     );
-    const videos = r.videos.slice(0, 3);
-    videos.forEach(function (v) {
-      return res.json(success(v.title, v.videoId, v.image));
-    });
+    const videos = r.videos.slice(0, 1);
+    const results = videos.map((v)=> success(v.title, v.videoId, v.image))
+    return res.json(results);
+    
   }
   res.send("you need to type your request");
 });

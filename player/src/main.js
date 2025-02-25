@@ -11,6 +11,8 @@ var searchbtn = document.getElementById("search");
 var start = false;
 var volume = document.getElementById("volume");
 const barreMusique = document.getElementById("temps");
+const imageMusique = document.getElementById("cover")
+
 
 //event de si on appuie sur le boutton
 setInterval(function () {
@@ -83,6 +85,7 @@ async function search(song, artist) {
     console.log("hello");
     result.json().then((data) => {
       console.log(data);
+      imageMusique.src = data[0].image
     });
   } catch (err) {
     console.log(err);
