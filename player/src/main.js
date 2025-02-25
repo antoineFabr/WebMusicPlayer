@@ -7,19 +7,15 @@ let secondeBarre = 0;
 let pixelBarre = 0;
 let duration;
 var btn = document.getElementById("button");
+var searchbtn = document.getElementById("search");
 var start = false;
 var volume = document.getElementById("volume");
-const barreMusique = document.getElementById("temps")
+const barreMusique = document.getElementById("temps");
 
 //event de si on appuie sur le boutton
 setInterval(function () {
-  
- 
-  
   sound.volume(volume.value / 30);
-
 }, 1000);
-
 
 //initialisation de l'objet de la musique
 var sound = new Howl({
@@ -28,16 +24,12 @@ var sound = new Howl({
 });
 
 btn.addEventListener("click", updateBTN);
-barreMusique.addEventListener("change", console.log("click"))
+barreMusique.addEventListener("change", console.log("click"));
 
 function updateBTN() {
   if (start === false) {
-
     sound.play();
-    
-    
-    
-    
+
     btn.value = "play";
 
     start = true;
@@ -70,5 +62,29 @@ let tempsMusique = () => {
   gsap.to(barreMusique, {
     value: 100,
     duration: duration,
-  })
+  });
+};
+
+searchbtn.addEventListener("click", () => {
+  const champSong = document.getElementById("musicName").value;
+  const champArtist = document.getElementById("artistName").value;
+  search(champSong, champArtist);
+});
+
+async function search(song, artist) {
+  console.log(song);
+  console.log(artist);
+  const url = `http://localhost:3000/music/search/?song=${song}&artist=${artist}`;
+  try {
+    const result = await fetch(url, {
+      method: "GET",
+      mode: "cors",
+    });
+    console.log("hello");
+    result.json().then((data) => {
+      console.log(data);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }

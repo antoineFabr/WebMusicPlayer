@@ -10,7 +10,8 @@
   "author": "Antoine Fabre",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "yt-search": "^2.12.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
