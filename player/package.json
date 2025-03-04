@@ -12,6 +12,7 @@
     "vite": "^6.0.5"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "gsap": "^3.12.7",
     "howler": "^2.2.4",
     "youtube-sr": "^4.3.11"

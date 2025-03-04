@@ -1,6 +1,7 @@
 import "./style.css";
 import { Howl, Howler } from "howler";
 import { gsap } from "gsap/gsap-core";
+//import Buffer from "buffer/";
 //const {Howl, Howler} = require('howler');
 const barremax = 150;
 let secondeBarre = 0;
@@ -11,8 +12,7 @@ var searchbtn = document.getElementById("search");
 var start = false;
 var volume = document.getElementById("volume");
 const barreMusique = document.getElementById("temps");
-const imageMusique = document.getElementById("cover")
-
+const imageMusique = document.getElementById("cover");
 
 //event de si on appuie sur le boutton
 setInterval(function () {
@@ -70,22 +70,45 @@ let tempsMusique = () => {
 searchbtn.addEventListener("click", () => {
   const champSong = document.getElementById("musicName").value;
   const champArtist = document.getElementById("artistName").value;
-  search(champSong, champArtist);
+  getToken(ClientId, ClientSecret);
 });
-
+async function getToken(ClientId, ClientSecret) {
+  const url = "https://accounts.spotify.com/api/token";
+  try {
+    const results = await fetch(url, {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Autorization: "Basic" + `${ClientId}:${ClientSecret}`,
+      },
+      form: {
+        grant_type: "client_credentials",
+      },
+      json: true,
+    });
+    results.json().then((data) => {
+      console.log(data);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
 async function search(song, artist) {
   console.log(song);
   console.log(artist);
-  const url = `http://localhost:3000/music/search/?song=${song}&artist=${artist}`;
+  const url = `https://api.spotify.com/v1/search?q=${song}&type=track`;
   try {
     const result = await fetch(url, {
+      headers: {
+        Autorization: ``,
+      },
       method: "GET",
       mode: "cors",
     });
     console.log("hello");
     result.json().then((data) => {
       console.log(data);
-      imageMusique.src = data[0].image
+      //imageMusique.src = data[0].image;
     });
   } catch (err) {
     console.log(err);

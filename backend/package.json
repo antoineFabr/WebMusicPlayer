@@ -10,7 +10,9 @@
   "author": "Antoine Fabre",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
+    "spotify-search-wrapper": "^0.2.1",
     "yt-search": "^2.12.1"
   },
   "devDependencies": {
